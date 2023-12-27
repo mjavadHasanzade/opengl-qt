@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QSlider>
+#include "chartview.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,12 +13,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-//    OpenGlCore *glw=new OpenGlCore(this);
 
     connect(ui->xSlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::xRotate);
     connect(ui->ySlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::yRotate);
     connect(ui->zSlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::zRotate);
-
 
 }
 
