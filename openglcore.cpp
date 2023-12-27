@@ -1,4 +1,5 @@
 #include "openglcore.h"
+#include <QMouseEvent>
 
 
 OpenGlCore::OpenGlCore(QWidget *parent) : QOpenGLWidget(parent)
@@ -13,6 +14,8 @@ void OpenGlCore::initializeGL()
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+
+//    setMouseTracking(true);
 
 }
 
@@ -107,3 +110,25 @@ void OpenGlCore::zRotate(int z)
     update();
 }
 
+void OpenGlCore::mousePressEvent(QMouseEvent *event)
+{
+    m_lastPos= event->position().toPoint();
+}
+
+void OpenGlCore::mouseMoveEvent(QMouseEvent *event)
+{
+
+
+    int dx = event->position().toPoint().x() - m_lastPos.x();
+    int dy = event->position().toPoint().y() - m_lastPos.y();
+
+
+    if (event->buttons() & Qt::LeftButton) {
+        xRotate(rotationAngleX + ( intensity * dy));
+        yRotate(rotationAngleY + ( intensity * dx));
+    } else if (event->buttons() & Qt::RightButton) {
+        xRotate(rotationAngleX + ( intensity * dy));
+        zRotate(rotationAngleZ + ( intensity * dx));
+    }
+    m_lastPos = event->position().toPoint();
+}
