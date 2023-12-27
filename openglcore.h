@@ -21,6 +21,8 @@ protected:
 
 public slots:
     void xRotate(int x);
+    void yRotate(int y);
+    void zRotate(int z);
 
 private:
     float rotationAngleX = 0.0f;

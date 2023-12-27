@@ -12,7 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-//    connect(ui->xSlider, &QSlider::valueChanged, &OpenGlCore, &OpenGlCore::xRotate);
+//    OpenGlCore *glw=new OpenGlCore(this);
+
+    connect(ui->xSlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::xRotate);
+    connect(ui->ySlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::yRotate);
+    connect(ui->zSlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::zRotate);
 
 
 }

@@ -93,3 +93,17 @@ void OpenGlCore::xRotate(int x)
     update();
 }
 
+
+void OpenGlCore::yRotate(int y)
+{
+    rotationAngleY=y;
+    update();
+}
+
+
+void OpenGlCore::zRotate(int z)
+{
+    rotationAngleZ=z;
+    update();
+}
+
