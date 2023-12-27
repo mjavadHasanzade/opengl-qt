@@ -14,10 +14,6 @@ void OpenGlCore::initializeGL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
-    // Start the timer to trigger animation
-    QTimer* timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(animate()));
-    timer->start(16); // Update every 16 milliseconds (approximately 60 FPS)
 }
 
 void OpenGlCore::resizeGL(int w, int h)
@@ -37,7 +33,10 @@ void OpenGlCore::paintGL()
     glLoadIdentity();
     glTranslatef(0.0f, 0.0f, -5.0f); // Move the cube away from the camera
 
-    glRotatef(rotationAngle, 1.0f, 0.0f, 0.0f); // Rotate the cube
+
+    glRotatef(rotationAngleX, 1.0f, 0.0f, 0.0f); // Rotate around the x-axis
+    glRotatef(rotationAngleY, 0.0f, 1.0f, 0.0f); // Rotate around the y-axis
+    glRotatef(rotationAngleZ, 0.0f, 0.0f, 1.0f); // Rotate around the z-axis
 
     // Render the cube
     glBegin(GL_QUADS);
@@ -87,9 +86,10 @@ void OpenGlCore::paintGL()
     glEnd();
 }
 
-void OpenGlCore::animate()
+
+void OpenGlCore::xRotate(int x)
 {
-    rotationAngle += 1.6;
+    rotationAngleX=x;
     update();
 }
 

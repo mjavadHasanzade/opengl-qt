@@ -18,11 +18,15 @@ protected:
 
     void paintGL() override;
 
-private slots:
-    void animate();
+
+public slots:
+    void xRotate(int x);
 
 private:
-    float rotationAngle = 0;
+    float rotationAngleX = 0.0f;
+    float rotationAngleY = 0.0f;
+    float rotationAngleZ = 0.0f;
+
 };
 
 
