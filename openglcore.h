@@ -11,6 +11,11 @@ class OpenGlCore : public QOpenGLWidget
 public:
     OpenGlCore(QWidget *parent = nullptr);
 
+signals:
+    void xValueChanged(int val);
+    void yValueChanged(int val);
+    void zValueChanged(int val);
+
 protected:
     void initializeGL() override;
     void resizeGL(int w, int h) override;

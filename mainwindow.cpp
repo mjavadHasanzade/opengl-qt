@@ -12,11 +12,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
-
     connect(ui->xSlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::xRotate);
     connect(ui->ySlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::yRotate);
     connect(ui->zSlider, &QSlider::valueChanged, ui->widgetOgl, &OpenGlCore::zRotate);
+
+    connect(ui->widgetOgl,&OpenGlCore::xValueChanged,ui->xSlider,&QSlider::setValue);
+    connect(ui->widgetOgl,&OpenGlCore::yValueChanged,ui->ySlider,&QSlider::setValue);
+    connect(ui->widgetOgl,&OpenGlCore::zValueChanged,ui->zSlider,&QSlider::setValue);
 
 }
 

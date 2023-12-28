@@ -92,8 +92,10 @@ void OpenGlCore::paintGL()
 
 void OpenGlCore::xRotate(int x)
 {
+
     rotationAngleX=x;
     update();
+    emit xValueChanged(rotationAngleX);
 }
 
 
@@ -101,6 +103,7 @@ void OpenGlCore::yRotate(int y)
 {
     rotationAngleY=y;
     update();
+    emit yValueChanged(rotationAngleY);
 }
 
 
@@ -108,6 +111,7 @@ void OpenGlCore::zRotate(int z)
 {
     rotationAngleZ=z;
     update();
+     emit zValueChanged(rotationAngleZ);
 }
 
 void OpenGlCore::mousePressEvent(QMouseEvent *event)
@@ -118,17 +122,23 @@ void OpenGlCore::mousePressEvent(QMouseEvent *event)
 void OpenGlCore::mouseMoveEvent(QMouseEvent *event)
 {
 
-
     int dx = event->position().toPoint().x() - m_lastPos.x();
     int dy = event->position().toPoint().y() - m_lastPos.y();
 
+    qDebug()<<dx<<dy;
 
     if (event->buttons() & Qt::LeftButton) {
         xRotate(rotationAngleX + ( intensity * dy));
         yRotate(rotationAngleY + ( intensity * dx));
+
+
     } else if (event->buttons() & Qt::RightButton) {
         xRotate(rotationAngleX + ( intensity * dy));
         zRotate(rotationAngleZ + ( intensity * dx));
+
     }
+
+
+
     m_lastPos = event->position().toPoint();
 }
