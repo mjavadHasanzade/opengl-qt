@@ -19,7 +19,7 @@ defaults:
 
 env:
   SOURCE_DIR: ${{ github.workspace }}
-  ARTIFACT: qt-planets-linux-build.AppImage
+  ARTIFACT: qt-planets-build.zip
 
 jobs:
   build:
