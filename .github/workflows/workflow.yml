@@ -32,6 +32,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: workspace
+        run: echo '${{ github.workspace }'
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
