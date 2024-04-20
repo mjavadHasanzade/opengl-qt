@@ -34,7 +34,7 @@ jobs:
 
       - name: Workspace
         run: |
-          echo '${{ github.workspace }'
+          echo '${{ github.workspace }}'
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
