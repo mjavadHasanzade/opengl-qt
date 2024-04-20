@@ -42,7 +42,6 @@ jobs:
           dir: ${{ runner.temp }}
           install-deps: 'true'
           modules: qtcharts
-          setup-python: 'true'
               
       - name: Create build directory
         run:  mkdir ${{ env.SOURCE_DIR }}/build
