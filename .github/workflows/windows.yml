@@ -47,12 +47,12 @@ jobs:
           modules: "qtcharts"
 
       - name: Create build directory
-        run: mkdir ${{ env.SOURCE_DIR }}/build
+        run: mkdir ${{ env.SOURCE_DIR }}\build
 
       - name: Build
-        working-directory: ${{ env.SOURCE_DIR }}/build
+        working-directory: ${{ env.SOURCE_DIR }}\build
         run: |
-          qmake -r ${{ env.SOURCE_DIR }}/QtWidgetOpenGl.pro
+          qmake -r ${{ env.SOURCE_DIR }}\QtWidgetOpenGl.pro
           nmake
 
       - name: (9) Zip build
