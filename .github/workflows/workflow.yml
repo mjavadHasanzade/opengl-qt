@@ -55,12 +55,12 @@ jobs:
           make
 
       - name: (9) Zip build
-        working-directory: ${{ runner.temp }}
+        working-directory: ${{ env.SOURCE_DIR  }}
         run: |
-          7z a qt-planets-build.zip ${{ runner.temp }}/build/* -r
+          7z a qt-planets-build.zip ${{ env.SOURCE_DIR  }}/build/* -r
               
       - name: (10) Save build artifact
         uses: actions/upload-artifact@master
         with:
           name: ${{ env.ARTIFACT }}
-          path: ${{ runner.temp }}/${{ env.ARTIFACT }}
+          path: ${{ env.SOURCE_DIR  }}/${{ env.ARTIFACT }}
