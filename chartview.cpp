@@ -9,25 +9,16 @@ ChartView::ChartView(QWidget *parent)
     chartView= new QChartView(chart);
 
     QLineSeries* series = new QLineSeries();
-    QVector<QPointF> data;
-    data << QPointF(0, 0) << QPointF(1, 1) << QPointF(2, 2) << QPointF(3, 1) << QPointF(4, 0) << QPointF(5, 2) << QPointF(6, 5) << QPointF(7, 10);
+    QList<QPointF> data;
+    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
 
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(chartView);
     layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
-
-//    QPen pen(QColor("#dcbc14"));
-//    pen.setWidth(2);
-//    series->setPen(pen);
-//    chart->setBackgroundBrush(QColor("#333333"));
-
-    // Set the size policy of the chart widget to expand and fill the available space
     chartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     chart->layout()->setContentsMargins(0, 0, 0, 0);
-
-//    series->append(data);
 
     chart->addSeries(series);
 

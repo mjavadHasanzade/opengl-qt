@@ -1,6 +1,6 @@
 #include "openglcore.h"
 #include <QMouseEvent>
-
+#include <QDebug>
 
 OpenGlCore::OpenGlCore(QWidget *parent) : QGLWidget(parent)
 {
@@ -116,29 +116,28 @@ void OpenGlCore::zRotate(int z)
 
 void OpenGlCore::mousePressEvent(QMouseEvent *event)
 {
-//    m_lastPos= event->position().toPoint();
+    qDebug()<<event->pos();
+    m_lastPos= event->pos();
 }
 
 void OpenGlCore::mouseMoveEvent(QMouseEvent *event)
 {
 
-//    int dx = event->position().toPoint().x() - m_lastPos.x();
-//    int dy = event->position().toPoint().y() - m_lastPos.y();
+    int dx = event->pos().x() - m_lastPos.x();
+    int dy = event->pos().y() - m_lastPos.y();
 
 
 
-//    if (event->buttons() & Qt::LeftButton) {
-//        xRotate(rotationAngleX + ( intensity * dy));
-//        yRotate(rotationAngleY + ( intensity * dx));
+    if (event->buttons() & Qt::LeftButton) {
+        xRotate(rotationAngleX + ( intensity * dy));
+        yRotate(rotationAngleY + ( intensity * dx));
 
 
-//    } else if (event->buttons() & Qt::RightButton) {
-//        xRotate(rotationAngleX + ( intensity * dy));
-//        zRotate(rotationAngleZ + ( intensity * dx));
+    } else if (event->buttons() & Qt::RightButton) {
+        xRotate(rotationAngleX + ( intensity * dy));
+        zRotate(rotationAngleZ + ( intensity * dx));
 
-//    }
+    }
 
-
-
-//    m_lastPos = event->position().toPoint();
+    m_lastPos = event->pos();
 }
