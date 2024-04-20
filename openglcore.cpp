@@ -2,7 +2,7 @@
 #include <QMouseEvent>
 
 
-OpenGlCore::OpenGlCore(QWidget *parent) : QOpenGLWidget(parent)
+OpenGlCore::OpenGlCore(QWidget *parent) : QGLWidget(parent)
 {
 
 }
@@ -116,29 +116,29 @@ void OpenGlCore::zRotate(int z)
 
 void OpenGlCore::mousePressEvent(QMouseEvent *event)
 {
-    m_lastPos= event->position().toPoint();
+//    m_lastPos= event->position().toPoint();
 }
 
 void OpenGlCore::mouseMoveEvent(QMouseEvent *event)
 {
 
-    int dx = event->position().toPoint().x() - m_lastPos.x();
-    int dy = event->position().toPoint().y() - m_lastPos.y();
-
-    qDebug()<<dx<<dy;
-
-    if (event->buttons() & Qt::LeftButton) {
-        xRotate(rotationAngleX + ( intensity * dy));
-        yRotate(rotationAngleY + ( intensity * dx));
-
-
-    } else if (event->buttons() & Qt::RightButton) {
-        xRotate(rotationAngleX + ( intensity * dy));
-        zRotate(rotationAngleZ + ( intensity * dx));
-
-    }
+//    int dx = event->position().toPoint().x() - m_lastPos.x();
+//    int dy = event->position().toPoint().y() - m_lastPos.y();
 
 
 
-    m_lastPos = event->position().toPoint();
+//    if (event->buttons() & Qt::LeftButton) {
+//        xRotate(rotationAngleX + ( intensity * dy));
+//        yRotate(rotationAngleY + ( intensity * dx));
+
+
+//    } else if (event->buttons() & Qt::RightButton) {
+//        xRotate(rotationAngleX + ( intensity * dy));
+//        zRotate(rotationAngleZ + ( intensity * dx));
+
+//    }
+
+
+
+//    m_lastPos = event->position().toPoint();
 }

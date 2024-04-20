@@ -1,10 +1,10 @@
 #ifndef OPENGLCORE_H
 #define OPENGLCORE_H
 
-#include <QOpenGLWidget>
+#include <QGLWidget>
 #include <QOpenGLFunctions>
 #include <QTimer>
-class OpenGlCore : public QOpenGLWidget
+class OpenGlCore : public QGLWidget
 {
     Q_OBJECT
 

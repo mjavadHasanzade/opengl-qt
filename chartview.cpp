@@ -27,7 +27,7 @@ ChartView::ChartView(QWidget *parent)
     chartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     chart->layout()->setContentsMargins(0, 0, 0, 0);
 
-    series->append(data);
+//    series->append(data);
 
     chart->addSeries(series);
 
