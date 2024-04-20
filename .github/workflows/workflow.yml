@@ -46,7 +46,7 @@ jobs:
           modules: 'qtcharts'
 
       - name: Create build directory
-        run: mkdir ${{ env.SOURCE_DIR }}/build
+        run: mkdir -p ${{ env.SOURCE_DIR }}/build
 
       - name: Build
         working-directory: ${{ env.SOURCE_DIR }}/build
