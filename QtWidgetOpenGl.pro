@@ -1,5 +1,7 @@
 QT       += core gui opengl charts
-LIBS += -lopengl32 -lglu32
+win32 {
+    LIBS += -lopengl32 -lglu32 -lfreeglut
+}
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
