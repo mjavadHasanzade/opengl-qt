@@ -44,25 +44,25 @@ jobs:
           arch: "win64_msvc2019_64"
           dir: ${{ runner.temp }}
           install-deps: "true"
-          modules: 'qtcharts'
+          modules: "qtcharts"
 
       - name: Create build directory
-        run: mkdir -p ${{ env.SOURCE_DIR }}\build
+        run: mkdir ${{ env.SOURCE_DIR }}/build
 
       - name: Build
-        working-directory: ${{ env.SOURCE_DIR }}\build
+        working-directory: ${{ env.SOURCE_DIR }}/build
         run: |
-          qmake -r ${{ env.SOURCE_DIR }}\QtWidgetOpenGl.pro
-          make
+          qmake -r ${{ env.SOURCE_DIR }}/QtWidgetOpenGl.pro
+          nmake
 
       - name: (9) Zip build
-        working-directory: ${{ env.SOURCE_DIR  }}
+        working-directory: ${{ env.SOURCE_DIR }}
         run: |
-          7z a qt-planets-build.zip ${{ env.SOURCE_DIR  }}\build\* -r
+          7z a qt-planets-build.zip ${{ env.SOURCE_DIR }}/build/* -r
           ls .
-              
+
       - name: (10) Save build artifact
         uses: actions/upload-artifact@master
         with:
           name: ${{ env.ARTIFACT }}
-          path: ${{ env.SOURCE_DIR  }}\${{ env.ARTIFACT }}
+          path: ${{ env.SOURCE_DIR }}/${{ env.ARTIFACT }}
