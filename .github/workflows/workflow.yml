@@ -23,7 +23,6 @@ jobs:
         run: |
           # Install any additional dependencies required for your app
           # For example, if you are using qmake, add the following line:
-          QT += charts
 
       - name: Build
         run: |
