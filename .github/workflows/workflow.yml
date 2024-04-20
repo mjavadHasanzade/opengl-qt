@@ -58,6 +58,7 @@ jobs:
         working-directory: ${{ env.SOURCE_DIR  }}
         run: |
           7z a qt-planets-build.zip ${{ env.SOURCE_DIR  }}/build/* -r
+          ls .
               
       - name: (10) Save build artifact
         uses: actions/upload-artifact@master
